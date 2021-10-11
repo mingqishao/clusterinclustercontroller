@@ -1,0 +1,33 @@
+go install k8s.io/code-generator/cmd/informer-gen
+go install k8s.io/code-generator/cmd/lister-gen
+go install k8s.io/code-generator/cmd/deepcopy-gen && /home/minsha/go/bin/deepcopy-gen --input-dirs github.com/mingqishao/clusterinclustercontroller/pkg/apis/clusterincluster/v1alpha1 -O zz_generated.deepcopy
+
+
+/home/minsha/go/src/k8s.io/code-generator/generate-groups.sh all \
+    "github.com/mingqishao/clusterinclustercontroller/pkg/generated" \
+    "github.com/mingqishao/clusterinclustercontroller/pkg/apis" \
+    clusterincluster:v1alpha1
+
+/home/minsha/go/src/k8s.io/code-generator/generate-groups.sh all \
+    "clusterinclustercontroller/pkg/generated" \
+    "clusterinclustercontroller/pkg/apis" \
+    clusterincluster:v1alpha1
+
+go get k8s.io/apimachinery
+go get k8s.io/code-generator
+cd /go/src/k8s.io/code-generator/
+./generate-groups.sh all \
+    "github.com/mingqishao/clusterinclustercontroller/pkg/generated" \
+    "github.com/mingqishao/clusterinclustercontroller/pkg/apis" \
+    clusterincluster:v1alpha1
+
+docker run -it --rm -v /home/minsha/go/src/github.com/mingqishao/clusterinclustercontroller:/go/src/github.com/mingqishao/clusterinclustercontroller shaomq/env
+
+######
+apt-get install wget git
+wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz
+tar -xvf go1.11.linux-amd64.tar.gz
+mv go /usr/local
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
