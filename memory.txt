@@ -16,7 +16,8 @@ go install k8s.io/code-generator/cmd/deepcopy-gen && /home/minsha/go/bin/deepcop
 go get k8s.io/apimachinery
 go get k8s.io/code-generator
 cd /go/src/k8s.io/code-generator/
-./generate-groups.sh all \
+
+../code-generator/generate-groups.sh deepcopy \
     "github.com/mingqishao/clusterinclustercontroller/pkg/generated" \
     "github.com/mingqishao/clusterinclustercontroller/pkg/apis" \
     clusterincluster:v1alpha1
@@ -31,3 +32,6 @@ mv go /usr/local
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+klog.Fatalf("Hit an unsupported type %v for %v, from %v", uft, ft, t)
+Hit an unsupported type invalid type    for invalid type, from github.com/mingqishao/clusterinclustercontroller/pkg/apis/clusterincluster/v1alpha1.Cluster
