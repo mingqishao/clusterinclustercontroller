@@ -24,7 +24,7 @@ import (
 	time "time"
 
 	versioned "github.com/mingqishao/clusterinclustercontroller/pkg/generated/clientset/versioned"
-	clusterincluster "github.com/mingqishao/clusterinclustercontroller/pkg/generated/informers/externalversions/clusterincluster"
+	clusterinclustercontroller "github.com/mingqishao/clusterinclustercontroller/pkg/generated/informers/externalversions/clusterinclustercontroller"
 	internalinterfaces "github.com/mingqishao/clusterinclustercontroller/pkg/generated/informers/externalversions/internalinterfaces"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
@@ -172,9 +172,9 @@ type SharedInformerFactory interface {
 	ForResource(resource schema.GroupVersionResource) (GenericInformer, error)
 	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
 
-	Samplecontroller() clusterincluster.Interface
+	Clusterinclustercontroller() clusterinclustercontroller.Interface
 }
 
-func (f *sharedInformerFactory) Samplecontroller() clusterincluster.Interface {
-	return clusterincluster.New(f, f.namespace, f.tweakListOptions)
+func (f *sharedInformerFactory) Clusterinclustercontroller() clusterinclustercontroller.Interface {
+	return clusterinclustercontroller.New(f, f.namespace, f.tweakListOptions)
 }

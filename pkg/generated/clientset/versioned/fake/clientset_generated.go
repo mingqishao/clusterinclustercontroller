@@ -20,8 +20,8 @@ package fake
 
 import (
 	clientset "github.com/mingqishao/clusterinclustercontroller/pkg/generated/clientset/versioned"
-	samplecontrollerv1alpha1 "github.com/mingqishao/clusterinclustercontroller/pkg/generated/clientset/versioned/typed/clusterincluster/v1alpha1"
-	fakesamplecontrollerv1alpha1 "github.com/mingqishao/clusterinclustercontroller/pkg/generated/clientset/versioned/typed/clusterincluster/v1alpha1/fake"
+	clusterinclustercontrollerv1alpha1 "github.com/mingqishao/clusterinclustercontroller/pkg/generated/clientset/versioned/typed/clusterinclustercontroller/v1alpha1"
+	fakeclusterinclustercontrollerv1alpha1 "github.com/mingqishao/clusterinclustercontroller/pkg/generated/clientset/versioned/typed/clusterinclustercontroller/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"
@@ -79,7 +79,7 @@ var (
 	_ testing.FakeClient  = &Clientset{}
 )
 
-// SamplecontrollerV1alpha1 retrieves the SamplecontrollerV1alpha1Client
-func (c *Clientset) SamplecontrollerV1alpha1() samplecontrollerv1alpha1.SamplecontrollerV1alpha1Interface {
-	return &fakesamplecontrollerv1alpha1.FakeSamplecontrollerV1alpha1{Fake: &c.Fake}
+// ClusterinclustercontrollerV1alpha1 retrieves the ClusterinclustercontrollerV1alpha1Client
+func (c *Clientset) ClusterinclustercontrollerV1alpha1() clusterinclustercontrollerv1alpha1.ClusterinclustercontrollerV1alpha1Interface {
+	return &fakeclusterinclustercontrollerv1alpha1.FakeClusterinclustercontrollerV1alpha1{Fake: &c.Fake}
 }
