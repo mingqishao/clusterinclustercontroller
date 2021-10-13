@@ -3,7 +3,6 @@ kind: Cluster
 metadata:
   name: cluster-1
 spec:
-  clusterName: cluster-1
   aciSubscriptionId: novalue
   aciResourceGroup: novalue 
   vnetSubscriptionId: novalue 

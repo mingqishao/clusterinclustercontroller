@@ -261,7 +261,7 @@ func (c *Controller) syncHandler(key string) error {
 		return err
 	}
 
-	clusterName := foo.Spec.ClusterName
+	clusterName := name
 	if clusterName == "" {
 		// We choose to absorb the error here as the worker would requeue the
 		// resource otherwise. Instead, the next time the resource is updated
@@ -399,7 +399,7 @@ func (c *Controller) handleObject(obj interface{}) {
 // the appropriate OwnerReferences on the resource so handleObject can discover
 // the Foo resource that 'owns' it.
 func newDeployment(foo *clusterv1alpha1.Cluster) *appsv1.Deployment {
-	clusterName := foo.Spec.ClusterName
+	clusterName := foo.Name
 	deploymentName := "cluster-deployment-" + clusterName
 	labels := map[string]string{
 		"app":        "kik",

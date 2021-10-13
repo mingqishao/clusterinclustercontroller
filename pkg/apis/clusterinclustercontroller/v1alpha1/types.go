@@ -34,7 +34,6 @@ type Cluster struct {
 
 // FooSpec is the spec for a Foo resource
 type ClusterSpec struct {
-	ClusterName 		string `json:"clusterName"`
 	AciSubscriptionId 	string `json:"aciSubscriptionId"`
 	AciResourceGroup 	string `json:"aciResourceGroup"`
 	VnetSubscriptionId 	string `json:"vnetSubscriptionId"`

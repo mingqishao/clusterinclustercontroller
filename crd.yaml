@@ -20,8 +20,6 @@ spec:
             spec:
               type: object
               properties:
-                clusterName:
-                  type: string
                 aciSubscriptionId:
                   type: string
                 aciResourceGroup:
@@ -39,6 +37,11 @@ spec:
               properties:
                 state:
                   type: string
+      additionalPrinterColumns:
+      - name: State
+        type: string
+        description: The cluster state
+        jsonPath: .status.state
   names:
     kind: Cluster
     plural: clusters
